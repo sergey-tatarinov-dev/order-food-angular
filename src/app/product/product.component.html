@@ -1,0 +1,27 @@
+<div class="row">
+  <div *ngFor="let product of products" class="col-sm-3">
+    <div class="card">
+      <div class="card-image">
+        <img src="" height="20px" width="20px">
+      </div>
+      <div class="card-content">
+        <p class="product-title">{{product.title}}</p>
+        <p class="product-description">{{product.description}}</p>
+        <div class="btn-group btn-block">
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Размер
+          </button>
+          <div class="dropdown-menu btn-block">
+            <a class="dropdown-item">30см</a>
+            <a class="dropdown-item">36см</a>
+            <a class="dropdown-item">50см</a>
+          </div>
+        </div>
+        <p class="product-price">{{product.price}} ₴</p>
+        <button type="button" class="btn btn-outline-danger btn-block">В корзину</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
