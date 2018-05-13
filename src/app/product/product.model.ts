@@ -5,4 +5,5 @@ export class Product {
   weight: number;
   category: string;
   price: number;
+  imageBinaryString: string;
 }
