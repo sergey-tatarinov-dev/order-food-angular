@@ -8,16 +8,15 @@
         <p class="product-title">{{product.title}}</p>
         <p class="product-description">{{product.description}}</p>
         <div class="btn-group btn-block">
-          <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-block" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
             Размер
           </button>
           <div class="dropdown-menu btn-block">
-            <a class="dropdown-item">30см</a>
-            <a class="dropdown-item">36см</a>
-            <a class="dropdown-item">50см</a>
+            <a class="dropdown-item" *ngFor="let portion of product.portions">{{portion.size}}см</a>
           </div>
         </div>
-        <p class="product-price">{{product.price}} ₴</p>
+        <p class="product-price">{{product.portions[0].price}} ₴</p>
         <button type="button" class="btn btn-outline-danger btn-block">В корзину</button>
       </div>
     </div>
