@@ -6,11 +6,13 @@ import {ProductComponent} from './product/product.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {ProductService} from './product/product.service';
+import { HoverDirective } from './hover.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent
+    ProductComponent,
+    HoverDirective
   ],
   imports: [
     BrowserModule,
