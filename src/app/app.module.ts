@@ -5,21 +5,39 @@ import {AppComponent} from './app.component';
 import {ProductComponent} from './product/product.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import {ProductService} from './product/product.service';
-import { HoverDirective } from './hover.directive';
+import {HoverDirective} from './hover.directive';
+import {SearchPipe} from './search.pipe';
+import {PizzaPageComponent} from './pizza-page/pizza-page.component';
+import {DrinksPageComponent} from './drinks-page/drinks-page.component';
+import {SushiPageComponent} from './sushi-page/sushi-page.component';
+import {SaladsPageComponent} from './salads-page/salads-page.component';
+import {RouterModule} from '@angular/router';
+
+const routes = [
+  {path: '', component: PizzaPageComponent},
+  {path: 'sushi', component: SushiPageComponent},
+  {path: 'drinks', component: DrinksPageComponent},
+  {path: 'salads', component: SaladsPageComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    HoverDirective
+    HoverDirective,
+    SearchPipe,
+    PizzaPageComponent,
+    DrinksPageComponent,
+    SushiPageComponent,
+    SaladsPageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [ProductService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

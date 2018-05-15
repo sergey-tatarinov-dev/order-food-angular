@@ -32,11 +32,13 @@ button:after{
 }
 
 .hovered {
-  transform: scale(1.03);
+  transform: scale(1.08);
   box-shadow: 0 0 10px rgba(0, 0, 0, .9);
   transition: .5s all;
   z-index: 10;
   border-radius: 2%;
 }
 
-
+.col-sm-6.col-md-4.col-lg-3{
+  display: inline-block;
+}

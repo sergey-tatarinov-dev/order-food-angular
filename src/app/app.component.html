@@ -1,24 +1,21 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">Sunshine Food</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Пицца <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Роллы</a>
-        <a class="nav-item nav-link" href="#">Салаты</a>
-        <a class="nav-item nav-link" href="#">Напитки</a>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="#">Sunshine Food</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" routerLink="/">Пицца <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" routerLink="/sushi">Роллы</a>
+          <a class="nav-item nav-link" routerLink="/salads">Салаты</a>
+          <a class="nav-item nav-link" routerLink="/drinks">Напитки</a>
+        </div>
       </div>
-    </div>
-  </nav>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Поиск...">
-    </div>
-  </div>
-  <app-product></app-product>
+    </nav>
+
+  <router-outlet></router-outlet>
 
 </div>
