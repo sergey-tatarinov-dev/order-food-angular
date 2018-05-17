@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from '../product/product.service';
 
 @Component({
   selector: 'app-salads-page',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaladsPageComponent implements OnInit {
 
-  constructor() { }
+  products = [];
+  searchString = '';
 
-  ngOnInit() {
+  constructor(private productService: ProductService) {
   }
 
+  ngOnInit() {
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products.filter((item) => {
+        return item.category.title.includes('SALADS');
+      });
+    });
+  }
 }

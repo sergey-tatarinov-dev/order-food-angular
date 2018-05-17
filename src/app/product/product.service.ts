@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import {Product} from './product.model';
+import {Product} from '../model/product.model';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

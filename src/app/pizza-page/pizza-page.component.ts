@@ -14,11 +14,10 @@ export class PizzaPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(
-      products => this.products = products,
-      (error) => console.log(error),
-      () => console.log('Success.')
-    );
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products.filter((item) => {
+        return item.category.title.includes('PIZZA');
+      });
+    });
   }
-
 }
