@@ -8,5 +8,6 @@ import {Component, Input} from '@angular/core';
 export class ProductComponent {
 
   @Input() product;
+  @Input() isList: true;
 
 }

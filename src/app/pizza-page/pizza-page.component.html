@@ -6,4 +6,5 @@
 <app-product
   *ngFor="let p of products | search: searchString"
   [product]="p"
+  [isList]="true"
 ></app-product>

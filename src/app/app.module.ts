@@ -15,6 +15,7 @@ import {RouterModule} from '@angular/router';
 
 const routes = [
   {path: '', component: PizzaPageComponent},
+  {path: 'pizza', component: PizzaPageComponent},
   {path: 'sushi', component: SushiPageComponent},
   {path: 'drinks', component: DrinksPageComponent},
   {path: 'salads', component: SaladsPageComponent}

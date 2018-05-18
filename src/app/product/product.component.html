@@ -5,15 +5,21 @@
     </div>
     <div class="card-content">
       <p class="product-title">{{product.title}}</p>
-      <p class="product-description">{{product.description}}</p>
-      <div class="btn-group btn-block">
+      <p class="product-description" *ngIf="product.description!=null; else zeroHeight">{{product.description}}</p>
+      <div class="btn-group btn-block" *ngIf="isList; else singlePrice">
         <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Размер
         </button>
-        <div class="dropdown-menu btn-block">
-          <a class="dropdown-item" *ngFor="let portion of product.portions">{{portion.size}}см</a>
+        <div class="dropdown-menu btn-block ">
+          <a class="dropdown-item" *ngFor="let portion of product.portions">{{portion.size}}</a>
         </div>
       </div>
+      <ng-template #singlePrice>
+        {{product.portions[0].size}}
+      </ng-template>
+      <ng-template #zeroHeight>
+
+      </ng-template>
       <p class="product-price">{{product.portions[0].price}} ₴</p>
       <button type="button" class="btn btn-outline-danger btn-block">В корзину</button>
     </div>
