@@ -12,3 +12,19 @@ a.nav-item.nav-link:hover{
   color:red;
   border: none;
 }
+
+svg{
+  width:35px;
+  height: 35px;
+  border:1px #b2bbbd solid;
+  padding: 5px;
+  border-radius: 90px;
+}
+
+.text-xs-right{
+  text-align: right !important;
+}
+
+path{
+  fill: #b2bbbd;
+}

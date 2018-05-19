@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-4 col-lg-3">
+<div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
   <div class="card" appHover>
     <div class="card-image">
       <img src="{{product.imageBinaryString}}">
@@ -7,21 +7,22 @@
       <p class="product-title">{{product.title}}</p>
       <p class="product-description" *ngIf="product.description!=null; else zeroHeight">{{product.description}}</p>
       <div class="btn-group btn-block" *ngIf="isList; else singlePrice">
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Размер
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-block" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          {{selectedValue}}
         </button>
-        <div class="dropdown-menu btn-block ">
-          <a class="dropdown-item" *ngFor="let portion of product.portions">{{portion.size}}</a>
+        <div class="dropdown-menu btn-block">
+          <a class="dropdown-item" *ngFor="let portion of product.portions" (click)="selectValue(portion)">
+            {{portion.size}}
+          </a>
         </div>
       </div>
-      <ng-template #singlePrice>
-        {{product.portions[0].size}}
-      </ng-template>
-      <ng-template #zeroHeight>
-
-      </ng-template>
-      <p class="product-price">{{product.portions[0].price}} ₴</p>
-      <button type="button" class="btn btn-outline-danger btn-block">В корзину</button>
+      <p class="product-price">{{ selectedPrice ? selectedPrice : product.portions[0].price}} ₴</p>
+      <button type="button" class="btn btn-outline-danger btn-block" (click)="addToCart(product)">В корзину</button>
     </div>
   </div>
 </div>
+<ng-template #singlePrice>
+  {{selectedPrice}}
+</ng-template>
+<ng-template #zeroHeight></ng-template>

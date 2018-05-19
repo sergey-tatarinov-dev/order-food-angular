@@ -6,7 +6,7 @@ export class Product {
   title: string;
   description: string;
   category: Category;
-  portions: Portion;
-  price: number;
+  portions: Portion[];
   imageBinaryString: string;
+  selectedPortion: Portion;
 }

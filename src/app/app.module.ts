@@ -12,6 +12,7 @@ import {DrinksPageComponent} from './drinks-page/drinks-page.component';
 import {SushiPageComponent} from './sushi-page/sushi-page.component';
 import {SaladsPageComponent} from './salads-page/salads-page.component';
 import {RouterModule} from '@angular/router';
+import { CartComponent } from './cart/cart.component';
 
 const routes = [
   {path: '', component: PizzaPageComponent},
@@ -30,7 +31,8 @@ const routes = [
     PizzaPageComponent,
     DrinksPageComponent,
     SushiPageComponent,
-    SaladsPageComponent
+    SaladsPageComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

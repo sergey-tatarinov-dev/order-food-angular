@@ -1,4 +1,9 @@
 export class Portion {
-  size: number;
+  size: string;
   price: number;
+
+  constructor(selectedPrice: number, selectedValue: string) {
+    this.price = selectedPrice;
+    this.size = selectedValue;
+  }
 }
