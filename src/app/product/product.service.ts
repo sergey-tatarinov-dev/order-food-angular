@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import {Product} from '../model/product.model';
+import {Product} from '../models/product.model';
 import {Observable} from 'rxjs';
 
 const httpOptions = {
@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   public addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.url, product, httpOptions);
+    return this.http.post<Product>(this.url + 'addProductToCard', product, httpOptions);
   }
 
 }

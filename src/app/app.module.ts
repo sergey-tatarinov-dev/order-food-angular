@@ -5,21 +5,22 @@ import {AppComponent} from './app.component';
 import {ProductComponent} from './product/product.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import {HoverDirective} from './hover.directive';
-import {SearchPipe} from './search.pipe';
+import {HoverDirective} from './utils/hover.directive';
+import {SearchPipe} from './utils/search.pipe';
 import {PizzaPageComponent} from './pizza-page/pizza-page.component';
 import {DrinksPageComponent} from './drinks-page/drinks-page.component';
 import {SushiPageComponent} from './sushi-page/sushi-page.component';
 import {SaladsPageComponent} from './salads-page/salads-page.component';
 import {RouterModule} from '@angular/router';
-import { CartComponent } from './cart/cart.component';
+import {CartPageComponent} from './cart-page/cart-page.component';
 
 const routes = [
   {path: '', component: PizzaPageComponent},
   {path: 'pizza', component: PizzaPageComponent},
   {path: 'sushi', component: SushiPageComponent},
   {path: 'drinks', component: DrinksPageComponent},
-  {path: 'salads', component: SaladsPageComponent}
+  {path: 'salads', component: SaladsPageComponent},
+  {path: 'cart', component: CartPageComponent}
 ];
 
 @NgModule({
@@ -32,7 +33,7 @@ const routes = [
     DrinksPageComponent,
     SushiPageComponent,
     SaladsPageComponent,
-    CartComponent
+    CartPageComponent
   ],
   imports: [
     BrowserModule,

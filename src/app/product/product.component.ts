@@ -1,15 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Portion} from '../model/portion.model';
-import {Product} from '../model/product.model';
+import {Component, Injectable, Input} from '@angular/core';
+import {Portion} from '../models/portion.model';
+import {Product} from '../models/product.model';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent {
+export class ProductComponent extends AppComponent {
 
-  @Input() static cart: Product[] = [];
+  public static totalPrice = 0;
   @Input() product;
   @Input() isList = true;
   values = [];
@@ -28,16 +29,40 @@ export class ProductComponent {
     this.selectedPrice = this.selectedPrice ? this.selectedPrice : this.product.portions[0].price;
     this.selectedValue = this.selectedValue === 'Размер' ? this.product.portions[0].size : this.selectedValue;
     this.product.selectedPortion = new Portion(this.selectedPrice, this.selectedValue);
-    ProductComponent.cart.push(product);
-    console.log(ProductComponent.cart);
-    this.calculateTotalPrice(ProductComponent.cart);
+    const newProduct = new Product(product);
+    var BreakException = {};
+    let isExist = false;
+    try {
+      if (ProductComponent.cardProducts.length === 0) {
+        newProduct.count++;
+        ProductComponent.cardProducts.push(newProduct);
+      } else {
+        ProductComponent.cardProducts.forEach((iterableProduct) => {
+          if (iterableProduct.title === newProduct.title && iterableProduct.selectedPortion.size === newProduct.selectedPortion.size) {
+            iterableProduct.count++;
+            isExist = true;
+            throw BreakException;
+          }
+        });
+        newProduct.count += 1;
+        if (!isExist) {
+          ProductComponent.cardProducts.push(newProduct);
+        }
+      }
+    } catch (e) {
+      if (e !== BreakException) {
+        throw e;
+      }
+    }
+    ProductComponent.totalPrice = this.calculateTotalPrice(ProductComponent.cardProducts);
   }
 
-  calculateTotalPrice(cart: Product[]) {
-    let totalPrice = 0;
-    cart.forEach((prod) => {
-      totalPrice += prod.selectedPortion.price;
+  calculateTotalPrice(cart: Product[]): number {
+    let totalPrice: number = 0;
+    cart.forEach((product) => {
+      totalPrice += product.count * product.selectedPortion.price;
     });
-    console.log(totalPrice);
+    return totalPrice;
   }
+
 }
