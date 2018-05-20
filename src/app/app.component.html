@@ -4,7 +4,6 @@
       <a class="navbar-brand" href="#">Sunshine Food</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
               aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -16,7 +15,7 @@
       </div>
       <button type="button" class="btn btn-outline-danger" routerLink="/cart">
         Корзина <span class="badge badge-light">{{getCart().length}}</span>
-        <span class="sr-only">В корзине 7 товаров</span>
+        <span class="sr-only">В корзине {{getCart().length}} товаров</span>
       </button>
     </nav>
 

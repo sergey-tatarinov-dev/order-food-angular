@@ -1,0 +1,55 @@
+<div class="row">
+  <form class="col-md-6">
+    <div class="form-group">
+      <label for="name">Имя</label>
+      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Введите имя" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Телефон</label>
+      <input type="text" class="form-control input-medium bfh-phone" data-format="+38 (ddd) ddd-dd-dd" id="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="city">Город</label>
+      <input type="text" class="form-control" id="city" placeholder="Введите город" required>
+    </div>
+    <div class="form-group">
+      <label for="street">Улица</label>
+      <input type="text" class="form-control" id="street" placeholder="Введите улицу" required>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4">
+        <label for="house">Дом</label>
+        <input type="number" class="form-control" id="house" placeholder="Введите дом" required>
+      </div>
+      <div class="col-md-4">
+        <label for="corps">Корпус</label>
+        <input type="number" class="form-control" id="corps" placeholder="Введите корпус" required>
+      </div>
+      <div class="col-md-4">
+        <label for="flat">Квартира</label>
+        <input type="number" class="form-control" id="flat" placeholder="Введите квартиру" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="button" class="col-lg-3 btn btn-outline-danger" routerLink="/thanks">Заказать</button>
+    </div>
+  </form>
+  <div class="col-md-6">
+    <div class="card">
+      <h5 class="card-header">Заказ</h5>
+      <div class="card-body">
+        <h5 class="card-title">В вашей корзине {{cart.length}} товаров</h5>
+        <table class="table table-hover">
+          <tr *ngFor="let product of cart">
+            <td class="text-left">{{product.count}} X {{product.title}} ({{product.selectedPortion.size}})</td>
+            <td class="text-right">{{product.selectedPortion.price}}₴</td>
+          </tr>
+          <tr class="text-center">
+            <td class="font-weight-bold text-left"><h4>Total</h4></td>
+            <td class="font-weight-bold text-right"><h4>{{getTotalPrice()}}₴</h4></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

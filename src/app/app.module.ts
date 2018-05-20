@@ -13,14 +13,18 @@ import {SushiPageComponent} from './sushi-page/sushi-page.component';
 import {SaladsPageComponent} from './salads-page/salads-page.component';
 import {RouterModule} from '@angular/router';
 import {CartPageComponent} from './cart-page/cart-page.component';
+import { OrderPageComponent } from './order-page/order-page.component';
+import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 
 const routes = [
-  {path: '', component: PizzaPageComponent},
+  {path: '', redirectTo: 'pizza', pathMatch: 'full'},
   {path: 'pizza', component: PizzaPageComponent},
   {path: 'sushi', component: SushiPageComponent},
   {path: 'drinks', component: DrinksPageComponent},
   {path: 'salads', component: SaladsPageComponent},
-  {path: 'cart', component: CartPageComponent}
+  {path: 'cart', component: CartPageComponent},
+  {path: 'order', component: OrderPageComponent},
+  {path: 'thanks', component: ThanksPageComponent}
 ];
 
 @NgModule({
@@ -33,7 +37,9 @@ const routes = [
     DrinksPageComponent,
     SushiPageComponent,
     SaladsPageComponent,
-    CartPageComponent
+    CartPageComponent,
+    OrderPageComponent,
+    ThanksPageComponent
   ],
   imports: [
     BrowserModule,
