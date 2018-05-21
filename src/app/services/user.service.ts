@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  private isUserLoggedIn: boolean;
+  private isUserLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false');
   public username;
 
   constructor() {
@@ -15,9 +15,10 @@ export class UserService {
   setUserLoggedIn() {
     this.isUserLoggedIn = true;
     this.username = 'admin';
+    localStorage.setItem('loggedIn', 'true');
   }
 
   getUserLoggedIn() {
-    return this.isUserLoggedIn;
+    return JSON.parse(localStorage.getItem('loggedIn') || this.isUserLoggedIn.toString());
   }
 }

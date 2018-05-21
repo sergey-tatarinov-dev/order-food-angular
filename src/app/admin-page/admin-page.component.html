@@ -1,4 +1,10 @@
-<h3>admin-page works!</h3>
-<p>
-  <button routerLink="/login" type="submit" class="col-lg-4 btn btn-outline-danger">&#8592; Назад</button>
-</p>
+<div>
+  <h3>Супер секретная информация</h3>
+  <p>
+    <button routerLink="/addProduct" type="submit" class="col-lg-3 btn btn-outline-danger"> Перейти к добавлению
+      продукта
+    </button>
+    &nbsp;
+    <button routerLink="/login" type="submit" class="col-lg-3 btn btn-outline-danger" (click)="logout()"> Выйти</button>
+  </p>
+</div>
