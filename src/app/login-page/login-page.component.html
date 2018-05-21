@@ -1,0 +1,18 @@
+<div class="col-md-6">
+  <form (submit)="loginUser($event)">
+    <div class="alert alert-danger" *ngIf="!isExist">
+      <p>Такого пользователя не существует</p>
+    </div>
+    <div class="form-group">
+      <label for="username">Имя пользователя</label>
+      <input type="text" class="form-control" id="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Пароль</label>
+      <input type="password" class="form-control" id="password">
+    </div>
+    <!--<button type="submit" class="col-lg-4 btn btn-outline-danger">Регистрация</button>-->
+    <button type="submit" class="col-lg-4 offset-lg-4 btn btn-outline-danger">Войти</button>
+    <!--<input type="submit" value="Войти">-->
+  </form>
+</div>
