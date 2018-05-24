@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {ProductComponent} from './product/product.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HoverDirective} from './utils/hover.directive';
 import {SearchPipe} from './utils/search.pipe';
 import {PizzaPageComponent} from './pizza-page/pizza-page.component';
@@ -18,8 +18,9 @@ import {ThanksPageComponent} from './thanks-page/thanks-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {RegisterPageComponent} from './register-page/register-page.component';
-import {AuthguardGuard} from './authguard.guard';
+import {AuthguardGuard} from './utils/authguard.guard';
 import {UserService} from './services/user.service';
+import { AddProductPageComponent } from './add-product-page/add-product-page.component';
 
 const routes = [
   {path: '', redirectTo: 'pizza', pathMatch: 'full'},
@@ -32,7 +33,8 @@ const routes = [
   {path: 'thanks', component: ThanksPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'dashboard', component: AdminPageComponent, canActivate: [AuthguardGuard]},
-  {path: 'register', component: RegisterPageComponent}
+  {path: 'register', component: RegisterPageComponent},
+  {path: 'addProduct', component: AddProductPageComponent}
 ];
 
 @NgModule({
@@ -50,12 +52,14 @@ const routes = [
     ThanksPageComponent,
     LoginPageComponent,
     AdminPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    AddProductPageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [AuthguardGuard, UserService],

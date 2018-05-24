@@ -1,0 +1,11 @@
+.card-body{
+  display: flex;
+}
+
+.component-row{
+  padding: 10px 0 0 15px;
+}
+
+.btn-outline-success{
+  padding-right: 20px;
+}

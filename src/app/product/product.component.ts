@@ -1,4 +1,4 @@
-import {Component, Injectable, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Portion} from '../models/portion.model';
 import {Product} from '../models/product.model';
 import {AppComponent} from '../app.component';
@@ -13,6 +13,7 @@ export class ProductComponent extends AppComponent {
   public static totalPrice = 0;
   @Input() product;
   @Input() isList = true;
+  @Input() cardClass = '';
   values = [];
   prices = [];
   selectedValue = 'Размер';
@@ -28,8 +29,8 @@ export class ProductComponent extends AppComponent {
   addToCart(product: Product) {
     this.selectedPrice = this.selectedPrice ? this.selectedPrice : this.product.portions[0].price;
     this.selectedValue = this.selectedValue === 'Размер' ? this.product.portions[0].size : this.selectedValue;
-    this.product.selectedPortion = new Portion(this.selectedPrice, this.selectedValue);
-    const newProduct = new Product(product);
+    this.product.selectedPortion = new Portion(this.selectedValue, this.selectedPrice);
+    const newProduct = Product.getCopy(product);
     var BreakException = {};
     let isExist = false;
     try {

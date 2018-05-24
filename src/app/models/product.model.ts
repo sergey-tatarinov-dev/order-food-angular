@@ -11,20 +11,26 @@ export class Product {
   selectedPortion: Portion;
   count: number;
 
-  constructor(product: Product) {
-    this.id = product.id;
-    this.title = product.title;
-    this.description = product.description;
+  constructor() {
+
+  }
+
+  static getCopy(product: Product): Product {
+    let copy = new Product();
+    copy.id = product.id;
+    copy.title = product.title;
+    copy.description = product.description;
     if (product.count === undefined) {
-      this.count = 0;
+      copy.count = 0;
     } else {
-      this.count = product.count;
+      copy.count = product.count;
     }
-    this.selectedPortion = new Portion(product.selectedPortion.price, product.selectedPortion.size);
-    this.imageBinaryString = product.imageBinaryString;
-    this.category = new Category();
-    this.category.title = product.category.title;
-    this.category.id = product.category.id;
-    this.portions = product.portions;
+    copy.selectedPortion = new Portion(product.selectedPortion.size, product.selectedPortion.price);
+    copy.imageBinaryString = product.imageBinaryString;
+    copy.category = new Category();
+    copy.category.title = product.category.title;
+    copy.category.id = product.category.id;
+    copy.portions = product.portions;
+    return copy;
   }
 }
