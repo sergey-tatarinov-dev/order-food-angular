@@ -9,3 +9,12 @@
 .btn-outline-success{
   padding-right: 20px;
 }
+
+.col-md-11.alert-danger{
+  margin: 10px 0 0 15px;
+}
+
+.fill{
+  margin-top: 15px;
+  margin-bottom:15px;
+}

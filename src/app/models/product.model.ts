@@ -12,7 +12,10 @@ export class Product {
   count: number;
 
   constructor() {
-
+    this.title = '';
+    this.imageBinaryString = '';
+    this.description = '';
+    this.portions = [];
   }
 
   static getCopy(product: Product): Product {
