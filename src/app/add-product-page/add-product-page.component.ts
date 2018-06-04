@@ -72,7 +72,7 @@ export class AddProductPageComponent implements OnInit {
   }
 
   addPortion() {
-    if (this.portion.size !== '' && this.portion.price !== null && this.portion.price !== '') {
+    if (this.portion.size !== '' && this.portion.price !== null/* && this.portion.price !== ''*/) {
       const control = <FormArray>this.invoiceForm.controls['itemRows'];
       control.push(this.initItemRows());
       if (this.isFirst) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../models/product.model';
 import {ProductComponent} from '../product/product.component';
 
@@ -11,7 +11,25 @@ export class OrderPageComponent implements OnInit {
 
   cart: Product[] = [];
 
+  address = {
+    city: '',
+    street: '',
+    house: 0,
+    corps: '',
+    flat: 0
+  };
+
+  @Input() order = {
+    name: '',
+    phone: '',
+    address: this.address
+  };
+
   constructor() {
+  }
+
+  clear() {
+    ProductComponent.cardProducts.splice(0, ProductComponent.cardProducts.length);
   }
 
   getTotalPrice() {
@@ -20,6 +38,10 @@ export class OrderPageComponent implements OnInit {
 
   ngOnInit() {
     this.cart = ProductComponent.cardProducts;
+  }
+
+  public getPaymentData() {
+    return this.order;
   }
 
 }

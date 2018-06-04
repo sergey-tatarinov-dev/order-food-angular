@@ -1,8 +1,29 @@
 <div>
-  <h3>Супер секретная информация</h3>
   <p>
-    <button routerLink="/addProduct" type="submit" class="col-lg-3 btn btn-outline-danger">Перейти к добавлению продукта</button>
-    &nbsp;
+    <strong><span class="h5">Продукты</span></strong>
+    <button routerLink="/addProduct" type="submit" class="col-lg-3 offset-lg-8 btn btn-outline-danger">+ Добавить продукт</button>
+  </p>
+  <table class="table table-striped">
+    <tr class="text-center">
+      <th>Title</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th colspan="3">Portion</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.title}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.category.title}}</td>
+      <td *ngFor="let portion of product.portions">
+        {{portion.size}}: {{portion.price}}
+      </td>
+      <td><span class="fas fa-pencil-alt" routerLink="/addProduct"></span></td>
+      <td><span class="far fa-trash-alt"></span></td>
+    </tr>
+  </table>
+  <p> &nbsp;
     <button routerLink="/login" type="submit" class="col-lg-3 btn btn-outline-danger" (click)="logout()">Выйти</button>
   </p>
 </div>

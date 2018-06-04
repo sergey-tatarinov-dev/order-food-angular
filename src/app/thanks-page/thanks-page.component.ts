@@ -9,6 +9,8 @@ export class ThanksPageComponent implements OnInit {
 
   constructor() { }
 
+  order: any;
+
   ngOnInit() {
   }
 

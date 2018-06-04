@@ -2,36 +2,36 @@
   <form class="col-md-6">
     <div class="form-group">
       <label for="name">Имя</label>
-      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Введите имя" required="true">
+      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Введите имя" required="true" [(ngModel)]="order.name" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="form-group">
       <label for="phone">Телефон</label>
-      <input type="text" class="form-control input-medium bfh-phone" data-format="+38 (ddd) ddd-dd-dd" id="phone" required="true">
+      <input type="text" class="form-control input-medium bfh-phone" data-format="+38 (ddd) ddd-dd-dd" id="phone" required="true" [(ngModel)]="order.phone" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="form-group">
       <label for="city">Город</label>
-      <input type="text" class="form-control" id="city" placeholder="Введите город" required="true">
+      <input type="text" class="form-control" id="city" placeholder="Введите город" required="true" [(ngModel)]="order.address.city" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="form-group">
       <label for="street">Улица</label>
-      <input type="text" class="form-control" id="street" placeholder="Введите улицу" required="true">
+      <input type="text" class="form-control" id="street" placeholder="Введите улицу" required="true" [(ngModel)]="order.address.street" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="form-row">
       <div class="col-md-4">
         <label for="house">Дом</label>
-        <input type="number" class="form-control" id="house" placeholder="Введите дом" required="true">
+        <input type="number" class="form-control" id="house" placeholder="Введите дом" required="true" [(ngModel)]="order.address.house" [ngModelOptions]="{standalone: true}">
       </div>
       <div class="col-md-4">
         <label for="corps">Корпус</label>
-        <input type="number" class="form-control" id="corps" placeholder="Введите корпус" required="true">
+        <input type="text" class="form-control" id="corps" placeholder="Введите корпус" required="true" [(ngModel)]="order.address.corps" [ngModelOptions]="{standalone: true}">
       </div>
       <div class="col-md-4">
         <label for="flat">Квартира</label>
-        <input type="number" class="form-control" id="flat" placeholder="Введите квартиру" required="true">
+        <input type="number" class="form-control" id="flat" placeholder="Введите квартиру" required="true" [(ngModel)]="order.address.flat" [ngModelOptions]="{standalone: true}">
       </div>
     </div>
     <div class="form-group">
-      <button type="button" class="col-lg-3 btn btn-outline-danger" routerLink="/thanks">Заказать</button>
+      <button type="button" class="col-lg-3 btn btn-outline-danger" (click)="clear()" routerLink="/thanks">Заказать</button>
     </div>
   </form>
   <div class="col-md-6">

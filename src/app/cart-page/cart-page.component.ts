@@ -36,15 +36,17 @@ export class CartPageComponent implements OnInit {
   }
 
   minusProduct(product: Product) {
+    let i = 0;
     ProductComponent.cardProducts.forEach((cardProduct) => {
       if (product === cardProduct) {
         ProductComponent.totalPrice -= cardProduct.selectedPortion.price;
         if (cardProduct.count > 1) {
           cardProduct.count--;
         } else {
-          ProductComponent.cardProducts.pop();
+          ProductComponent.cardProducts.splice(i, 1);
         }
       }
+      i++;
     });
   }
 

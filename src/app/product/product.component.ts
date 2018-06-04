@@ -14,16 +14,12 @@ export class ProductComponent extends AppComponent {
   @Input() product;
   @Input() isList = true;
   @Input() cardClass = '';
-  values = [];
-  prices = [];
   selectedValue = 'Размер';
   selectedPrice = 0;
 
   selectValue(portion: Portion) {
     this.selectedValue = portion.size.toString();
     this.selectedPrice = portion.price;
-    this.values.push(this.selectedValue);
-    this.prices.push(this.selectedPrice);
   }
 
   addToCart(product: Product) {

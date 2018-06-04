@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../services/user.service';
 import {Router} from '@angular/router';
+import {ProductService} from '../services/product.service';
+import {Product} from '../models/product.model';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,10 +10,15 @@ import {Router} from '@angular/router';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor(private router: Router) {
+  products = [];
+
+  constructor(private router: Router, private productService: ProductService) {
   }
 
   ngOnInit() {
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
   }
 
   logout() {
